@@ -1,0 +1,96 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:767px) {
+    .vertical-line {
+        display: none !important;
+    }
+
+    .vertical-padding {
+        display: none !important;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width: 767px) {
+    .flexer {
+        justify-content: flex-start; 
+    }
+
+    .pb-2 button {
+        margin-right: 7px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.input-group .form-control {
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.input-group .input-group-text {
+    border-radius: 30px;
+    background-color: #fff;
+}
+
+.input-group .input-group-text i {
+    color: #666;
+}
+
+.input-group .form-control:hover {
+    background-color: #f8f9fa;
+}
+
+.input-group .input-group-text:hover {
+    background-color: #f8f9fa;
+}
+
+.input-group .input-group-text:hover i {
+    color: #333;
+}
+
+.input-group .form-control:focus {
+    background-color: #fff;
+    color: black;
+}
+
+.input-group .input-group-text:focus {
+    background-color: black;
+}
+
+.input-group .input-group-text:focus i {
+    color: black;
+}
+
+.hover-div:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+emoji-picker {
+    width: 400px;
+    height: 300px;
+}

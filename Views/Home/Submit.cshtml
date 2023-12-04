@@ -1,0 +1,83 @@
+﻿@model Kaomoji;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
+    </div>
+
+    <h1 class="display-6 pt-5" style="font-size: 30px;">Submit a Kaomoji</strong></h1>
+    <h3 class="display-1" style="font-size: 20px;">Couldn't find a cool reaction? No worries! You can add it!</h3>
+</div>
+
+<form asp-action="Submit" method="post" class="bg-custom rounded col-12 py-3 px-4">
+    @Html.AntiForgeryToken()
+
+            <div class="mb-3 row">
+                <label for="Kao" class="col-sm-2 col-form-label">Kaomoji:</label>
+                <div class="col-sm-10">
+            <input type="text" class="form-control text-light border-dark" id="Kao" name="Kao" style="border-radius: 30px;" placeholder="Ex: Admin">
+                    <span asp-validation-for="Kao" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="Tags" class="col-sm-2 col-form-label">Tags</label>
+                <div class="col-sm-10">
+            <input type="text" class="form-control text-light border-dark" id="Email" name="Email" style="border-radius: 30px;" placeholder="Ex: admin@kbrtec.com.br">
+                    <span asp-validation-for="Tags" class="text-danger"></span>
+                </div>
+            </div>
+
+    <div class="mb-3 row">
+        <label for="Emojis" class="col-sm-2 col-form-label">Emojis</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control text-light border-dark" name="Emojis" style="border-radius: 30px;">
+            <span asp-validation-for="Emojis" class="text-danger"></span>
+        </div>
+        <div class="col-sm-1">
+            <button id="emoji-sel-button" class="btn btn-outline-secondary btn-pill d-inline-flex" style="border-radius: 30px; padding: 7px; border-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">😋</button>
+
+            <div id="EmojiPic">
+                <Picker onEmojiClick={onEmojiClick} />
+            </div>
+        </div>
+    </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-light">Cadastrar</button>
+            </div>
+        </form>
+
+<hr class="m-5" />
+
+<center>
+    <a href="/" type="button" class="m-5 btn btn-outline-secondary btn-pill d-inline-flex" style="border-radius: 30px; padding: 7px; border-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Return to Main Page</a>
+</center>
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        const inputField = document.querySelector('input[name="Emojis"]');
+
+        const pickerOptions = {
+            onEmojiSelect: (emojiObject) => {
+                inputField.value += emojiObject.native;
+            }
+        };
+
+        const picker = new EmojiMart.Picker(pickerOptions)
+
+        const button = document.querySelector('#emoji-sel-button');
+
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            document.body.appendChild(picker);
+        });
+    });
+</script>
