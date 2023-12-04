@@ -148,6 +148,9 @@ AppPackages/
 
 # DbContext
 Data/
+Migrations/
+Properties/
+*.json
 
 # Others
 sql/
