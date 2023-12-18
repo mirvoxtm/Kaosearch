@@ -45,7 +45,10 @@ namespace Kaosearch.Controllers {
                 _kaomojiService.SubmitKaomoji(kaomoji);
                 return View("success");
             }
-           
+            else {
+                kaomoji.Tags = "";
+            }
+
             return View();
         }
 
