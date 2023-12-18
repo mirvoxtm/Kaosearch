@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "emoji-mart": "^5.5.2",
-    "emoji-picker-element": "^1.20.1"
+    "emoji-picker-element": "^1.20.1",
+    "naughty-words": "^1.2.0"
   },
   "devDependencies": {
     "webpack": "^5.89.0",

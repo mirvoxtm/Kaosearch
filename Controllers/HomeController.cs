@@ -3,6 +3,7 @@ using Kaosearch.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Syncfusion.EJ2.Navigations;
+using System.Collections.Generic;
 
 namespace Kaosearch.Controllers {
     public class HomeController : Controller {
@@ -30,9 +31,45 @@ namespace Kaosearch.Controllers {
             return View();
         }
 
-        [AutoValidateAntiforgeryToken]
+        [Route("success")]
+        public IActionResult Success() {
+            return View();
+        }
+
         [HttpPost]
+        [Route("submit")]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Submit(Kaomoji kaomoji) {
+
+            if (ModelState.IsValid) {
+                _kaomojiService.SubmitKaomoji(kaomoji);
+                return View("success");
+            }
+           
+            return View();
+        }
+
+        public IActionResult Search(string query) {
+            List<Kaomoji> queryList = _kaomojiService.ListAll();
+            List<Kaomoji> filteredItems = new List<Kaomoji>();
+
+            foreach(var kaomoji in queryList) {
+                if (kaomoji.Tags.Contains(query)) {
+                filteredItems.Add(kaomoji);
+            }
+        }
+
+        return View(filteredItems);
+        }
+
+
+        [Route("404")]
+        public IActionResult PageNotFound() {
+            string originalPath = "unknown";
+            if (HttpContext.Items.ContainsKey("originalPath")) {
+                originalPath = HttpContext.Items["originalPath"] as string;
+            }
+
             return View();
         }
 

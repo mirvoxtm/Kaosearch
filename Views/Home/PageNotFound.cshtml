@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form asp-action="Search" method="get">
+        <div class="input-group pt-4">
+            <input type="text" name="query" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
+        </div>
+    </form>
+
+    <h1 class="display-6 pt-5" style="font-size: 30px;">This page could not be found!</strong></h1>
+    <p class="display-6" style="font-size: 15px;">Error Code 404.</strong></p>
+</div>
+
+<hr class="m-5" />
+
+<div class="d-flex justify-content-end">
+    <a href="/" type="button" class="p-2 btn btn-outline-secondary btn-pill d-inline-flex" style="border-radius: 30px; padding: 7px; border-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Go back!</a>
+</div>

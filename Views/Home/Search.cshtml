@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Kaomoji>;
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<div class="text-center pt-5">
+    <h1>૮ ˶ᵔ ᵕ ᵔ˶ ა <strong>Kaosearch</strong></h1>
+    <form asp-action="Search" method="get">
+        <div class="input-group pt-4">
+            <input type="text" name="query" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
+        </div>
+    </form>
+</div>
+
+<h1 class="display-6 pt-5" style="font-size: 30px;">Here's the search!</strong></h1>
+<div class="pt-2 col-sm-12 d-flex justify-content-center align-items-center flex-wrap">
+
+    @if (!Model.Any()) {
+        <p style="margin-bottom: -1px; margin-top: -3px;">Sorry! No Kaomojis were found with this query :(</p>
+    }
+
+    @if (Model.Any()) {
+        List<string> tags = Model.SelectMany(kaomoji => kaomoji.Tags.Split(',')).ToList();
+        @foreach (Kaomoji k in Model) {
+            <a asp-action="Kaomoji" asp-controller="Home" asp-route-id="@k.Id">
+                <div class="hover-div" style="border-radius: 30px; padding: 10px; border-color: black;">
+                    <p style="margin-bottom: -1px; margin-top: -3px;">@Html.DisplayFor(model => k.Kao)</p>
+                </div>
+            </a>
+        }
+    }
+
+
+    <!-- End Loop-->
+</div>
+</div>

@@ -20,9 +20,11 @@
 </script>
 
 <div class="text-center">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
-    </div>
+    <form asp-action="Search" method="get">
+        <div class="input-group pt-4">
+            <input type="text" name="query" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
+        </div>
+    </form>
 
     <h1 class="display-6 pt-5" style="font-size: 30px;">Is this your Kaomoji?</strong></h1>
 </div>
@@ -108,6 +110,6 @@
 
 <hr class="m-5" />
 
-<center>
-    <a href="/" type="button" class=" m-5 btn btn-outline-secondary btn-pill d-inline-flex" style="border-radius: 30px; padding: 7px; border-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Return to Main Page</a>
-</center>
+<div class="d-flex justify-content-end">
+    <a href="/" type="button" class="p-2 btn btn-outline-secondary btn-pill d-inline-flex" style="border-radius: 30px; padding: 7px; border-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Go back!</a>
+</div>

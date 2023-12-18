@@ -6,16 +6,18 @@
 
 <div class="text-center pt-5">
     <h1>૮ ˶ᵔ ᵕ ᵔ˶ ა <strong>Kaosearch</strong></h1>
-    <div class="input-group pt-4">
-        <input type="text" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
-    </div>
+    <form asp-action="Search" method="get">
+        <div class="input-group pt-4">
+            <input type="text" name="query" class="form-control" placeholder="🔎 | Search a Kaomoji or Tag...">
+        </div>
+    </form>
 </div>
 
     <div class="row pt-5">
     <div class="col-sm-3 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h5>Selection of the Day</h5>
+                <h5>Random Kaomojis</h5>
             </div>
 
             <!-- Loop Here Random Day Selection -->
@@ -99,3 +101,10 @@
         </div>
     </div>
 
+        <footer style="position: fixed; bottom: 0; right: 0;">
+            <center>
+                <div id="buttondiv" class="position-sticky bg-light rounded-pill p-3 m-5 shadow transition ease-in-out hover:bg-warning hover:text-dark">
+                    <b>Made with ❤️ by <a href="https://github.com/mirvoxtm">Mirvox</b></a>
+                </div>
+            </center>
+        </footer>
